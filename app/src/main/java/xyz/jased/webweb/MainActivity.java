@@ -1,6 +1,7 @@
 package xyz.jased.webweb;
 
 import android.animation.*;
+import android.annotation.SuppressLint;
 import android.app.*;
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -47,6 +48,7 @@ public class MainActivity extends Activity {
 		initializeLogic();
 	}
 	
+	@SuppressLint("SetJavaScriptEnabled")
 	private void initialize(Bundle _savedInstanceState) {
 		edittext1 = findViewById(R.id.edittext1);
 		button = findViewById(R.id.button);
@@ -100,6 +102,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onPageStarted(WebView _param1, String _param2, Bitmap _param3) {
 				final String _url = _param2;
+
+				edittext1.setText(_url);
 				
 				super.onPageStarted(_param1, _param2, _param3);
 			}
