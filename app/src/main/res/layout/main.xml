@@ -6,27 +6,28 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
+	<EditText
+		android:id="@+id/edittext1"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:hint="Enter Url"
+		android:inputType="text"
+		android:maxLines="1"
+		android:padding="8dp"
+		android:textColor="#000000"
+		android:textColorHint="#607D8B"
+		android:textSize="12sp" />
+
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
 
-		<EditText
-			android:id="@+id/edittext1"
-			android:layout_width="250.0dp"
-			android:layout_height="match_parent"
-			android:hint="Enter Url"
-			android:maxLines="1"
-			android:inputType="text"
-			android:padding="8dp"
-			android:textColor="#000000"
-			android:textColorHint="#607D8B"
-			android:textSize="12sp" />
-
 		<Button
-			android:id="@+id/button"
+			android:id="@+id/go_bttn"
 			android:layout_width="wrap_content"
 			android:layout_height="40dp"
+			android:layout_weight="1"
 			android:padding="8dp"
 			android:text="Go"
 			android:textColor="#000000"
@@ -35,9 +36,10 @@
 			android:translationY="0.0dp" />
 
 		<Button
-			android:id="@+id/button1"
+			android:id="@+id/home_bttn"
 			android:layout_width="wrap_content"
 			android:layout_height="40dp"
+			android:layout_weight="1"
 			android:padding="8dp"
 			android:text="Home"
 			android:textColor="#000000"
