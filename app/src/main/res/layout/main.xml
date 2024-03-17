@@ -47,6 +47,18 @@
 			android:translationX="0.0dp"
 			android:translationY="0.0dp" />
 
+		<Button
+			android:id="@+id/settings_bttn"
+			android:layout_width="wrap_content"
+			android:layout_height="40dp"
+			android:layout_weight="1"
+			android:padding="8dp"
+			android:text="Settings"
+			android:textColor="#000000"
+			android:textSize="18sp"
+			android:translationX="0.0dp"
+			android:translationY="0.0dp" />
+
 	</LinearLayout>
 
 	<WebView

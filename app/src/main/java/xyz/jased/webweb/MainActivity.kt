@@ -1,11 +1,13 @@
 package xyz.jased.webweb
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.webkit.WebView
 import android.widget.Button
 import android.widget.EditText
+
 
 class MainActivity : Activity() {
 
@@ -18,10 +20,11 @@ class MainActivity : Activity() {
     }
 
     private fun initialize(savedInstanceState: Bundle?) {
-        val goBttn = findViewById<Button>(R.id.go_bttn)
-        val homeBttn = findViewById<Button>(R.id.home_bttn)
-        val webview1 = findViewById<WebView>(R.id.webview1)
-        val edittext1 = findViewById<EditText>(R.id.edittext1)
+        val goBttn       = findViewById<Button>(R.id.go_bttn)
+        val homeBttn     = findViewById<Button>(R.id.home_bttn)
+        val settingsBttn = findViewById<Button>(R.id.settings_bttn)
+        val webview1     = findViewById<WebView>(R.id.webview1)
+        val edittext1    = findViewById<EditText>(R.id.edittext1)
 
         // Click listener for GO button
         goBttn?.setOnClickListener {
@@ -32,6 +35,13 @@ class MainActivity : Activity() {
         // TODO: when settings page made, make this changeable
         homeBttn?.setOnClickListener {
             loadURL(webview1, edittext1, "https://google.com")
+        }
+
+        // Click listener for SETTINGS button
+        settingsBttn?.setOnClickListener {
+            val intent = Intent(this@MainActivity, settings::class.java)
+
+            startActivity(intent)
         }
 
         // Load lastVisitedPage.ww
