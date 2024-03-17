@@ -25,13 +25,13 @@ class FileUtil {
             Log.d(null, "DEBUG: deleting ${applicationContext.filesDir}/$fileName")
 
             try {
-                File(applicationContext.filesDir, fileName).delete()
-                return true
+                val file = File(applicationContext.filesDir, fileName)
+
+                return file.delete()
             } catch (e: IOException) {
                 return false // fail
             }
         }
-
         fun readFile(fileName: String, applicationContext: Context): String? {
             Log.d(null, "DEBUG: ${applicationContext.filesDir}/$fileName - READ")
 

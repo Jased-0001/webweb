@@ -21,7 +21,7 @@ class MainActivity : Activity() {
     }
 
     private fun initialize(savedInstanceState: Bundle?) {
-        val goBttn       = findViewById<Button>(R.id.go_bttn)
+        val goBttn       = findViewById<Button>(R.id.cwvp_bttn)
         val homeBttn     = findViewById<Button>(R.id.home_bttn)
         val settingsBttn = findViewById<Button>(R.id.settings_bttn)
         val webview1     = findViewById<WebView>(R.id.webview1)
