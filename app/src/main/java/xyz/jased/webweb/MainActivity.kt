@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Button
 import android.widget.EditText
 
@@ -28,26 +29,28 @@ class MainActivity : Activity() {
 
         // Click listener for GO button
         goBttn?.setOnClickListener {
-            loadURL(webview1, edittext1, edittext1.text.toString())
+            loadURLInWebview(webview1, edittext1, edittext1.text.toString())
         }
 
         // Click listener for HOME button (go to google)
-        // TODO: when settings page made, make this changeable
+        // TODO: when SettingsActivity page made, make this changeable
         homeBttn?.setOnClickListener {
-            loadURL(webview1, edittext1, "https://google.com")
+            loadURLInWebview(webview1, edittext1, "https://google.com")
         }
 
         // Click listener for SETTINGS button
         settingsBttn?.setOnClickListener {
-            val intent = Intent(this@MainActivity, settings::class.java)
+            val intent = Intent(this@MainActivity, SettingsActivity::class.java)
 
             startActivity(intent)
         }
 
         // Load lastVisitedPage.ww
-        val urlToLoad = FileUtil.readFile("lastVisitedPage.ww", applicationContext) // TODO: bug: opens chrome
+        webview1.setWebViewClient(WebViewClient())
+        webview1.settings.javaScriptEnabled = true
+        val urlToLoad = FileUtil.readFile("lastVisitedPage.ww", applicationContext)
         if (urlToLoad != null) {
-            loadURL(webView = webview1, editText = edittext1, url = urlToLoad)
+            loadURLInWebview(webView = webview1, editText = edittext1, url = urlToLoad)
         } else {
             Log.i(null, "INFO: FileUtil.readFile failed, maybe lVP file wasn't found?")
         }
@@ -56,7 +59,7 @@ class MainActivity : Activity() {
     private fun initializeLogic() {}
 
     // Other utilities for me
-    private fun loadURL(webView: WebView, editText: EditText, url: String) {
+    private fun loadURLInWebview(webView: WebView, editText: EditText, url: String) {
         Log.d(null,"DEBUG: loadURL $url")
         editText.setText(url)
         webView.loadUrl(editText.text.toString())

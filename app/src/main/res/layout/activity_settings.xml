@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settings">
+    tools:context=".SettingsActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -13,5 +13,5 @@
         android:layout_height="wrap_content"
         android:text="TODO: settings"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> <!-- TODO: settings -->
+        app:layout_constraintTop_toTopOf="parent" /> <!-- TODO: SettingsActivity -->
 </androidx.constraintlayout.widget.ConstraintLayout>

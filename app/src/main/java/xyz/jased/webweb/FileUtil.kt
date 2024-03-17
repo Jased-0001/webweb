@@ -8,7 +8,7 @@ import java.io.IOException
 class FileUtil {
     companion object {
         fun writeFile(fileName: String, data: String, applicationContext: Context): Boolean { // https://www.bezkoder.com/kotlin-write-file/
-            Log.d(null, "DEBUG: ${applicationContext.filesDir}/$fileName - $data")
+            Log.d(null, "DEBUG: creating ${applicationContext.filesDir}/$fileName - $data")
 
             try {
                 File(applicationContext.filesDir, fileName).bufferedWriter().use { fileOut ->
@@ -17,7 +17,18 @@ class FileUtil {
 
                 return true
             } catch (e: IOException) {
-                return false
+                return false // fail
+            }
+        }
+
+        fun deleteFile(fileName: String, applicationContext: Context): Boolean {
+            Log.d(null, "DEBUG: deleting ${applicationContext.filesDir}/$fileName")
+
+            try {
+                File(applicationContext.filesDir, fileName).delete()
+                return true
+            } catch (e: IOException) {
+                return false // fail
             }
         }
 
@@ -31,7 +42,7 @@ class FileUtil {
                     return fileData
                 }
             } catch (e: IOException) {
-                return null
+                return null // fail
             }
         }
     }
